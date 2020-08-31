@@ -8,6 +8,8 @@ def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizza.settings')
     try:
+        from django.conf import settings
+        sys.path.append(os.path.join(settings.BASE_DIR, "apps"))
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(

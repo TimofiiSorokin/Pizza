@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from company.models import Catalog
+
+
+@admin.register(Catalog)
+class OrganizationModelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', )
+    # search_fields = ['name', ]
