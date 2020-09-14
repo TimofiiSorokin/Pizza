@@ -7,3 +7,10 @@ class CatalogListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Catalog
         fields = '__all__'
+
+
+class CatalogDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Catalog
+        fields = '__all__'
+

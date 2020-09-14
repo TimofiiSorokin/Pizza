@@ -1,0 +1,23 @@
+  version: '3.7'
+
+  services:
+    db:
+      build:
+        context: ..
+        dockerfile: ./Docker/DockerfileDB
+      environment:
+        - POSTGRES_DB=pizza_db
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    web:
+      build:
+        context: ..
+        dockerfile: ./Docker/Dockerfile
+#      command: tail -f /dev/null
+      command: python manage.py runserver 0.0.0.0:8000
+      volumes:
+        - ../server:/code
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db
